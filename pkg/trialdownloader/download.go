@@ -10,13 +10,9 @@ import (
 	"sync/atomic"
 
 	"github.com/pkierski/wokanda-scrapper/pkg/trialdownloader/trial"
-	"golang.org/x/sync/errgroup"
 )
 
 func Get(ctx context.Context, client *http.Client, url string) ([]trial.Trial, error) {
-	eg, ctx := errgroup.WithContext(ctx)
-	eg.SetLimit(100)
-
 	trialNo := 0
 	var done atomic.Bool
 	requestCh := make(chan int)
@@ -36,7 +32,7 @@ func Get(ctx context.Context, client *http.Client, url string) ([]trial.Trial, e
 	results := make([]trial.Trial, 0)
 
 	wg := sync.WaitGroup{}
-	for range 128 {
+	for range 16 {
 		wg.Add(1)
 		go func() { // worker
 			defer wg.Done()
