@@ -3,6 +3,7 @@ package trial
 import (
 	"bytes"
 	"fmt"
+	"os"
 
 	"github.com/pkierski/wokanda-scrapper/pkg/trialdownloader/pageparser"
 	"golang.org/x/net/html"
@@ -19,18 +20,21 @@ func ParseV2(data []byte) (trials []Trial, err error) {
 	}
 
 	// find first node (first case in search results)
-	var node *html.Node
-	pageparser.WalkNodes(page, func(n *html.Node) {
-		if node != nil {
-			return
-		}
-		if n.DataAtom == atom.Tr {
-			if pageparser.FindAttrValue(n, "class") == "category table table-striped table-bordered table-hover" {
-				node = n
-			}
-		}
 
+	node := pageparser.FindNodeDown(page, func(node *html.Node) bool {
+		return node.DataAtom == atom.Tr &&
+			pageparser.FindAttrValue(node, "class") == "category table table-striped table-bordered table-hover"
 	})
+
+	pageparser.Write(node, os.Stdout)
+	fmt.Println("--------")
+
+	node = pageparser.FindNodeInSiblings(node, func(node *html.Node) bool {
+		return node.DataAtom == atom.Tr &&
+			pageparser.FindAttrValue(node, "class") == "row_sklad category table table-striped table-bordered table-hover"
+	})
+
+	pageparser.Write(node, os.Stdout)
 
 	return nil, nil
 }
