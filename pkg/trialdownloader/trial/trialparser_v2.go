@@ -19,22 +19,45 @@ func ParseV2(data []byte) (trials []Trial, err error) {
 		return
 	}
 
-	// find first node (first case in search results)
-
-	node := pageparser.FindNodeDown(page, func(node *html.Node) bool {
+	firstElementPred := func(node *html.Node) bool {
 		return node.DataAtom == atom.Tr &&
 			pageparser.FindAttrValue(node, "class") == "category table table-striped table-bordered table-hover"
-	})
-
-	pageparser.Write(node, os.Stdout)
-	fmt.Println("--------")
-
-	node = pageparser.FindNodeInSiblings(node, func(node *html.Node) bool {
+	}
+	secondElementPred := func(node *html.Node) bool {
 		return node.DataAtom == atom.Tr &&
 			pageparser.FindAttrValue(node, "class") == "row_sklad category table table-striped table-bordered table-hover"
-	})
+	}
 
+	// find first node (first case in search results)
+	node := pageparser.FindNodeDown(page, firstElementPred)
+
+	for node != nil {
+		var trial Trial
+
+		// parse first part
+		parseFirstPart(node, &trial)
+
+		node = pageparser.FindNodeInSiblings(node, secondElementPred)
+		if node == nil {
+			break
+		}
+
+		// parse second part
+		parseSecondPart(node, &trial)
+		// add entry to result
+		trials = append(trials, trial)
+
+		node = pageparser.FindNodeInSiblings(node, firstElementPred)
+	}
+
+	return
+}
+
+func parseFirstPart(node *html.Node, trial *Trial) {
 	pageparser.Write(node, os.Stdout)
+	fmt.Println("--------")
+}
 
-	return nil, nil
+func parseSecondPart(node *html.Node, trial *Trial) {
+	pageparser.Write(node, os.Stdout)
 }
