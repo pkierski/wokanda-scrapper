@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"io"
 	"net/http"
 	"sync"
 	"sync/atomic"
@@ -12,7 +11,10 @@ import (
 	"github.com/pkierski/wokanda-scrapper/pkg/trialdownloader/trial"
 )
 
-func Get(ctx context.Context, client *http.Client, url string) ([]trial.Trial, error) {
+// GetV1 parses all pages from type "<url>/wokanda,N".
+//
+// Url is expected in form of bare domain, ex.: https://poznan.so.gov.pl
+func GetV1(ctx context.Context, client *http.Client, url string) ([]trial.Trial, error) {
 	trialNo := 0
 	var done atomic.Bool
 	requestCh := make(chan int)
@@ -29,7 +31,6 @@ func Get(ctx context.Context, client *http.Client, url string) ([]trial.Trial, e
 	// requestCh -> workers -> results
 	resultsCh := make(chan trial.Trial)
 	errorsCh := make(chan error, 1)
-	results := make([]trial.Trial, 0)
 
 	wg := sync.WaitGroup{}
 	for range 16 {
@@ -37,9 +38,11 @@ func Get(ctx context.Context, client *http.Client, url string) ([]trial.Trial, e
 		go func() { // worker
 			defer wg.Done()
 			for trialNo := range requestCh {
-				t, err := getOneAndParse(ctx, client, fmt.Sprintf("%v/wokanda,%v", url, trialNo))
+				t, err := getOneAndParseV1(ctx, client, fmt.Sprintf("%v/wokanda,%v", url, trialNo))
 				if err != nil {
-					if !errors.Is(err, trial.ErrNoDataOnPage) {
+					// ignore ErrNoDataOnPage because it's the page out of range
+					// except the first page has no data (no data at all, not in proper format)
+					if !errors.Is(err, trial.ErrNoDataOnPage) || trialNo == 1 {
 						errorsCh <- err
 					}
 					done.Store(true)
@@ -51,53 +54,29 @@ func Get(ctx context.Context, client *http.Client, url string) ([]trial.Trial, e
 		}()
 	}
 
-	// errorsCh -> errors collector
 	errs := make([]error, 0)
-	go func() {
-		for err := range errorsCh {
-			errs = append(errs, err)
-		}
-	}()
-
-	go func() {
-		for t := range resultsCh {
-			results = append(results, t)
-		}
-	}()
+	go collect(errorsCh, errs)
+	results := make([]trial.Trial, 0)
+	go collect(resultsCh, results)
 
 	wg.Wait()
+	close(errorsCh)
+	close(resultsCh)
 
 	return results, errors.Join(errs...)
 }
 
-func getOneAndParse(ctx context.Context, client *http.Client, url string) (trial.Trial, error) {
+func getOneAndParseV1(ctx context.Context, client *http.Client, url string) (trial.Trial, error) {
 	data, err := getOne(ctx, client, url)
 	if err != nil {
 		return trial.Trial{}, err
 	}
 
-	return trial.Parse(data)
+	return trial.ParseV1(data)
 }
 
-func getOne(ctx context.Context, client *http.Client, url string) ([]byte, error) {
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
-	if err != nil {
-		return nil, fmt.Errorf("fetch page: building request: %w", err)
+func collect[E any](c <-chan E, s []E) {
+	for e := range c {
+		s = append(s, e)
 	}
-	req.Header.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36")
-	resp, err := client.Do(req)
-	if err != nil {
-		return nil, fmt.Errorf("fetch page: request: %w", err)
-	}
-	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("fetch page: unexpected status: %v (%v)", resp.StatusCode, resp.Status)
-	}
-	defer resp.Body.Close()
-
-	data, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return nil, fmt.Errorf("fetch page body: %w", err)
-	}
-
-	return data, nil
 }
