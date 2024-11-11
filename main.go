@@ -18,7 +18,7 @@ func main() {
 		return
 	}
 
-	trials, err := trialdownloader.Get(context.Background(), http.DefaultClient, os.Args[1])
+	trials, err := trialdownloader.GetV2(context.Background(), http.DefaultClient, os.Args[1])
 	if err != nil {
 		panic(err)
 	}

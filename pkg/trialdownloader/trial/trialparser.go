@@ -22,7 +22,8 @@ var warsawTime = func() *time.Location {
 	return l
 }()
 
-func Parse(data []byte) (trial Trial, err error) {
+// ParseV1 parses one page from type "<url>/wokanda,N".
+func ParseV1(data []byte) (trial Trial, err error) {
 	if !bytes.Contains(data, []byte(`<dl class="dl-horizontal case-description-list">`)) {
 		err = fmt.Errorf("parsing trial page: %w", ErrNoDataOnPage)
 		return

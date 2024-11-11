@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"io"
 	"net/http"
 	"sync"
 	"sync/atomic"
@@ -12,7 +11,8 @@ import (
 	"github.com/pkierski/wokanda-scrapper/pkg/trialdownloader/trial"
 )
 
-func Get(ctx context.Context, client *http.Client, url string) ([]trial.Trial, error) {
+// GetV1 parses all pages from type "<url>/wokanda,N".
+func GetV1(ctx context.Context, client *http.Client, url string) ([]trial.Trial, error) {
 	trialNo := 0
 	var done atomic.Bool
 	requestCh := make(chan int)
@@ -37,7 +37,7 @@ func Get(ctx context.Context, client *http.Client, url string) ([]trial.Trial, e
 		go func() { // worker
 			defer wg.Done()
 			for trialNo := range requestCh {
-				t, err := getOneAndParse(ctx, client, fmt.Sprintf("%v/wokanda,%v", url, trialNo))
+				t, err := getOneAndParseV1(ctx, client, fmt.Sprintf("%v/wokanda,%v", url, trialNo))
 				if err != nil {
 					if !errors.Is(err, trial.ErrNoDataOnPage) {
 						errorsCh <- err
@@ -70,34 +70,11 @@ func Get(ctx context.Context, client *http.Client, url string) ([]trial.Trial, e
 	return results, errors.Join(errs...)
 }
 
-func getOneAndParse(ctx context.Context, client *http.Client, url string) (trial.Trial, error) {
+func getOneAndParseV1(ctx context.Context, client *http.Client, url string) (trial.Trial, error) {
 	data, err := getOne(ctx, client, url)
 	if err != nil {
 		return trial.Trial{}, err
 	}
 
-	return trial.Parse(data)
-}
-
-func getOne(ctx context.Context, client *http.Client, url string) ([]byte, error) {
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
-	if err != nil {
-		return nil, fmt.Errorf("fetch page: building request: %w", err)
-	}
-	req.Header.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36")
-	resp, err := client.Do(req)
-	if err != nil {
-		return nil, fmt.Errorf("fetch page: request: %w", err)
-	}
-	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("fetch page: unexpected status: %v (%v)", resp.StatusCode, resp.Status)
-	}
-	defer resp.Body.Close()
-
-	data, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return nil, fmt.Errorf("fetch page body: %w", err)
-	}
-
-	return data, nil
+	return trial.ParseV1(data)
 }
