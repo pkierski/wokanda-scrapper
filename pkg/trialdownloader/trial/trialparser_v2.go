@@ -3,61 +3,55 @@ package trial
 import (
 	"bytes"
 	"fmt"
-	"os"
+	"time"
 
-	"github.com/pkierski/wokanda-scrapper/pkg/trialdownloader/pageparser"
-	"golang.org/x/net/html"
-	"golang.org/x/net/html/atom"
+	"github.com/PuerkitoBio/goquery"
 )
 
 // ParseV1 parses one page from type pages like
 // "https://bialystok.sa.gov.pl/zalatw-sprawe/e-wokanda".
 func ParseV2(data []byte) (trials []Trial, err error) {
-	page, err := html.Parse(bytes.NewReader(data))
+	doc, err := goquery.NewDocumentFromReader(bytes.NewReader(data))
 	if err != nil {
 		err = fmt.Errorf("parsing trial page: %w", err)
 		return
 	}
 
-	firstElementPred := func(node *html.Node) bool {
-		return node.DataAtom == atom.Tr &&
-			pageparser.FindAttrValue(node, "class") == "category table table-striped table-bordered table-hover"
-	}
-	secondElementPred := func(node *html.Node) bool {
-		return node.DataAtom == atom.Tr &&
-			pageparser.FindAttrValue(node, "class") == "row_sklad category table table-striped table-bordered table-hover"
-	}
-
-	// find first node (first case in search results)
-	node := pageparser.FindNodeDown(page, firstElementPred)
-
-	for node != nil {
-		var trial Trial
-
-		// parse first part
-		parseFirstPart(node, &trial)
-
-		node = pageparser.FindNodeInSiblings(node, secondElementPred)
-		if node == nil {
-			break
+	// base information (revealed part of table cell)
+	baseInfos := doc.Selection.Find("tr[class='category table table-striped table-bordered table-hover']")
+	baseInfos.Each(func(i int, s *goquery.Selection) {
+		baseVals := s.Find("span.strong")
+		bv := baseVals.Map(func(i int, s *goquery.Selection) string {
+			return s.Text()
+		})
+		var dateTime time.Time
+		dateTime, err = parseAndLocalizeTime(bv[2], bv[4], "15:04")
+		trial := Trial{
+			CaseID:     bv[0],
+			Department: bv[1],
+			Date:       dateTime,
+			Room:       bv[3],
 		}
 
-		// parse second part
-		parseSecondPart(node, &trial)
-		// add entry to result
 		trials = append(trials, trial)
+	})
 
-		node = pageparser.FindNodeInSiblings(node, firstElementPred)
+	if err != nil {
+		return nil, err
 	}
 
+	// information hidded under "więcej..." button
+	additionalInfo := doc.Selection.Find("tr[class='row_sklad category table table-striped table-bordered table-hover']").Filter(":contains('Przewod')")
+	if additionalInfo.Length() != baseInfos.Length() {
+		return nil, fmt.Errorf("parsing trial page: base info and additional info length mismatch")
+	}
+
+	// update trials with additional info: the first elemnent is the judge name
+	additionalInfo.Each(func(i int, s *goquery.Selection) {
+		trial := trials[i]
+		trial.Judge = s.First().Find("td.strong").Text()
+		trials[i] = trial
+	})
+
 	return
-}
-
-func parseFirstPart(node *html.Node, trial *Trial) {
-	pageparser.Write(node, os.Stdout)
-	fmt.Println("--------")
-}
-
-func parseSecondPart(node *html.Node, trial *Trial) {
-	pageparser.Write(node, os.Stdout)
 }

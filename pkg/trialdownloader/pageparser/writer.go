@@ -13,7 +13,7 @@ func Write(node *html.Node, w io.Writer) {
 }
 
 func writeNode(node *html.Node, w io.Writer, indent int) {
-	if node.DataAtom != 0 || strings.TrimSpace(node.Data) != "" {
+	if true || node.DataAtom != 0 || strings.TrimSpace(node.Data) != "" {
 		fmt.Fprintf(w, "%vtype: '%v', data: '%v', attr: %v\n",
 			strings.Repeat("  ", indent), node.DataAtom, node.Data, node.Attr)
 	}
