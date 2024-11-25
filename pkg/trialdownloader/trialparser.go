@@ -1,4 +1,4 @@
-package trial
+package trialdownloader
 
 import (
 	"bytes"

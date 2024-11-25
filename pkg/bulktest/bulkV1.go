@@ -13,15 +13,14 @@ import (
 
 	"github.com/pkierski/wokanda-scrapper/pkg/data"
 	"github.com/pkierski/wokanda-scrapper/pkg/trialdownloader"
-	"github.com/pkierski/wokanda-scrapper/pkg/trialdownloader/trial"
 	"golang.org/x/sync/errgroup"
 )
 
 type resultType struct {
-	Url         string        `json:"url"`
-	Trials      []trial.Trial `json:"trials"`
-	Err         error         `json:"err"`
-	DateAquired time.Time     `json:"date_aquired"`
+	Url         string                  `json:"url"`
+	Trials      []trialdownloader.Trial `json:"trials"`
+	Err         error                   `json:"err"`
+	DateAquired time.Time               `json:"date_aquired"`
 }
 
 func BulkV1Test(ctx context.Context, client *http.Client) {
@@ -83,12 +82,12 @@ func writeResultV1(result resultType) {
 
 	var firstDate, lastDate time.Time
 	if result.Err == nil && len(result.Trials) > 0 {
-		firstTrial := slices.MinFunc(result.Trials, func(a, b trial.Trial) int {
+		firstTrial := slices.MinFunc(result.Trials, func(a, b trialdownloader.Trial) int {
 			return a.Date.Compare(b.Date)
 		})
 		firstDate = firstTrial.Date
 
-		lastTrial := slices.MaxFunc(result.Trials, func(a, b trial.Trial) int {
+		lastTrial := slices.MaxFunc(result.Trials, func(a, b trialdownloader.Trial) int {
 			return a.Date.Compare(b.Date)
 		})
 		lastDate = lastTrial.Date

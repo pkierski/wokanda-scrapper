@@ -9,7 +9,6 @@ import (
 
 	"github.com/hashicorp/go-retryablehttp"
 	"github.com/pkierski/wokanda-scrapper/pkg/trialdownloader"
-	"github.com/pkierski/wokanda-scrapper/pkg/trialdownloader/trial"
 )
 
 func main() {
@@ -27,7 +26,7 @@ func main() {
 		panic(err)
 	}
 
-	slices.SortFunc(trials, func(a, b trial.Trial) int {
+	slices.SortFunc(trials, func(a, b trialdownloader.Trial) int {
 		return a.Date.Compare(b.Date)
 	})
 	j, _ := json.MarshalIndent(trials, "", "  ")
