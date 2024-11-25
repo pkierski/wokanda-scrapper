@@ -11,7 +11,6 @@ import (
 	"slices"
 	"time"
 
-	"github.com/pkierski/wokanda-scrapper/pkg/data"
 	"github.com/pkierski/wokanda-scrapper/pkg/trialdownloader"
 	"golang.org/x/sync/errgroup"
 )
@@ -37,9 +36,9 @@ func BulkV1Test(ctx context.Context, client *http.Client) {
 		}
 	}()
 
-	domains := slices.Clone(data.Domains)
+	// domains := slices.Clone(data.Domains)
 	// TODO: remove already checked
-	domains = []string{"legnica.so.gov.pl"}
+	domains := []string{"legnica.so.gov.pl"}
 
 	for _, url := range domains {
 		eg.Go(func() error {
@@ -48,7 +47,8 @@ func BulkV1Test(ctx context.Context, client *http.Client) {
 
 			var result resultType
 			result.Url = url
-			result.Trials, result.Err = trialdownloader.GetV1(taskCtx, client, fmt.Sprintf("https://%v", url))
+			downloader := trialdownloader.NewV1Wokanda(client, fmt.Sprintf("https://%v", url))
+			result.Trials, result.Err = downloader.Download(taskCtx, "2006-02-01")
 			result.DateAquired = time.Now().UTC()
 			resultsCh <- result
 			return nil

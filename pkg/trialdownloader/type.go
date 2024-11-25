@@ -2,7 +2,6 @@ package trialdownloader
 
 import (
 	"context"
-	"net/http"
 	"time"
 )
 
@@ -19,6 +18,6 @@ type (
 		// Downloads all trials.
 		//
 		// date is string in format YYYY-MM-DD.
-		Download(ctx context.Context, client *http.Client, url string, date string) ([]Trial, error)
+		Download(ctx context.Context, date string) ([]Trial, error)
 	}
 )

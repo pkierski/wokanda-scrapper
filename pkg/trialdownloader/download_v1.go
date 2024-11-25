@@ -9,10 +9,29 @@ import (
 	"sync/atomic"
 )
 
+type V1Wokanda commonDownloader
+
+// check if V1Wokanda implements Downloader
+var _ Downloader = (*V1Wokanda)(nil)
+
+func NewV1Wokanda(client *http.Client, baseUrl string) V1Wokanda {
+	return V1Wokanda{
+		client:  client,
+		baseUrl: baseUrl,
+	}
+}
+
+// Downloads all trials.
+// date is string in format YYYY-MM-DD.
+func (d V1Wokanda) Download(ctx context.Context, date string) ([]Trial, error) {
+	// TODO: filter by date
+	return getV1(ctx, d.client, d.baseUrl)
+}
+
 // GetV1 parses all pages from type "<url>/wokanda,N".
 //
 // Url is expected in form of bare domain, ex.: https://poznan.so.gov.pl
-func GetV1(ctx context.Context, client *http.Client, url string) ([]Trial, error) {
+func getV1(ctx context.Context, client *http.Client, url string) ([]Trial, error) {
 	trialNo := 0
 	var done atomic.Bool
 	requestCh := make(chan int)

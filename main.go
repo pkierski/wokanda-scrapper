@@ -21,7 +21,10 @@ func main() {
 		return
 	}
 
-	trials, err := trialdownloader.GetV2(context.Background(), client.StandardClient(), os.Args[1])
+	// TODO: use constructor based on url
+	downloader := trialdownloader.NewV2Wokanda(client.StandardClient(), os.Args[1])
+
+	trials, err := downloader.Download(context.Background(), "2006-01-02")
 	if err != nil {
 		panic(err)
 	}
