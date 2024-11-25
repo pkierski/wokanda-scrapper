@@ -2,14 +2,11 @@ package trialdownloader
 
 import (
 	"bytes"
-	"errors"
 	"fmt"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 )
-
-var ErrNoDataOnPage = errors.New("can't find trial data")
 
 // ParseV1 parses one page from type "<url>/wokanda,N".
 func ParseV1(data []byte) (trial Trial, err error) {

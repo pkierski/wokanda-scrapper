@@ -13,19 +13,14 @@ import (
 // ParseV1 parses one page from type pages like
 // "https://bialystok.sa.gov.pl/zalatw-sprawe/e-wokanda".
 func ParseV2(data []byte) (trials []Trial, err error) {
+	if !bytes.Contains(data, []byte(`<form action="/zalatw-sprawe/e-wokanda" method="post">`)) {
+		return nil, fmt.Errorf("parsing trial page: %w", ErrNoDataOnPage)
+	}
+
 	doc, err := goquery.NewDocumentFromReader(bytes.NewReader(data))
 	if err != nil {
 		return nil, fmt.Errorf("parsing trial page: %w", err)
 	}
-
-	if doc.Find("form[action='/zalatw-sprawe/e-wokanda']").Length() != 1 {
-		return nil, fmt.Errorf("parsing trial page: bad format")
-	}
-
-	// dateOptions := doc.Find("select[id='mod-wokanda-termin']").Find("option")
-	// dateOptions.Each(func(i int, s *goquery.Selection) {
-	// 	fmt.Println(s.Text())
-	// })
 
 	// base information (revealed part of table cell)
 	baseInfos := doc.Selection.Find("tr[class='category table table-striped table-bordered table-hover']")
