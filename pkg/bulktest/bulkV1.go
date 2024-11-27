@@ -9,8 +9,10 @@ import (
 	"os"
 	"path/filepath"
 	"slices"
+	"sync"
 	"time"
 
+	"github.com/pkierski/wokanda-scrapper/pkg/data"
 	"github.com/pkierski/wokanda-scrapper/pkg/trialdownloader"
 	"golang.org/x/sync/errgroup"
 )
@@ -22,41 +24,36 @@ type resultType struct {
 	DateAquired time.Time               `json:"date_aquired"`
 }
 
-func BulkV1Test(ctx context.Context, client *http.Client) {
+func BulkV1Test(ctx context.Context, client *http.Client) ([]string, []bool) {
 	eg, taskCtx := errgroup.WithContext(ctx)
-	eg.SetLimit(16)
+	eg.SetLimit(128)
 
-	results := make(map[string]resultType)
-	resultsCh := make(chan resultType)
-
-	go func() {
-		for result := range resultsCh {
-			results[result.Url] = result
-			writeResultV1(result)
-		}
-	}()
-
-	// domains := slices.Clone(data.Domains)
+	domains := slices.Clone(data.Domains)
 	// TODO: remove already checked
-	domains := []string{"legnica.so.gov.pl"}
+	// domains := []string{"legnica.so.gov.pl"}
+	resultsV1 := make([]bool, len(domains))
+	var resultsV1Mu sync.Mutex
 
 	for _, url := range domains {
 		eg.Go(func() error {
+			url = "https://" + url
 			log.Printf("starting %v", url)
 			defer log.Printf("finished %v", url)
 
-			var result resultType
-			result.Url = url
-			downloader := trialdownloader.NewV1Wokanda(client, fmt.Sprintf("https://%v", url))
-			result.Trials, result.Err = downloader.Download(taskCtx, "2006-02-01")
-			result.DateAquired = time.Now().UTC()
-			resultsCh <- result
+			r := trialdownloader.Detect(taskCtx, client, url)
+			if len(r) == 1 && r[0] == trialdownloader.AppTypeV1 {
+				i := slices.Index(domains, url)
+				resultsV1Mu.Lock()
+				resultsV1[i] = true
+				resultsV1Mu.Unlock()
+			}
 			return nil
 		})
 	}
 
 	eg.Wait()
-	close(resultsCh)
+
+	return domains, resultsV1
 }
 
 func writeResultV1(result resultType) {

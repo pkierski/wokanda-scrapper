@@ -20,4 +20,6 @@ type (
 		// date is string in format YYYY-MM-DD.
 		Download(ctx context.Context, date string) ([]Trial, error)
 	}
+
+	AppType string
 )

@@ -33,7 +33,7 @@ suwalki.sr.gov.pl
 gdansk.sa.gov.pl
 bydgoszcz.so.gov.pl
 bydgoszcz.sr.gov.pl
-inowroclaw.sr.gov.pl
+bip.inowroclaw.sr.gov.pl
 mogilno.sr.gov.pl
 naklo.sr.gov.pl
 szubin.sr.gov.pl
@@ -51,7 +51,7 @@ gdansk.so.gov.pl
 gdansk-poludnie.sr.gov.pl
 gdansk-polnoc.sr.gov.pl
 gdynia.sr.gov.pl
-kartuzy.sr.gov.pl
+www.kartuzy.sr.gov.pl
 koscierzyna.sr.gov.pl
 kwidzyn.sr.gov.pl
 malbork.sr.gov.pl
@@ -318,7 +318,7 @@ strzelce-kraj.sr.gov.pl
 sulecin.sr.gov.pl
 miedzyrzecz.sr.gov.pl
 waw.sa.gov.pl
-warszawa.so.gov.pl
+bip.warszawa.so.gov.pl
 warszawa.sr.gov.pl
 warszawa-srodmiescie.sr.gov.pl
 warszawa-zoliborz.sr.gov.pl
@@ -333,7 +333,7 @@ nowydwormaz.sr.gov.pl
 otwock.sr.gov.pl
 warszawa-pragapoludnie.sr.gov.pl
 warszawapraga-pln.sr.gov.pl
-wolomin.sr.gov.pl
+bip.wolomin.sr.gov.pl
 wroclaw.sa.gov.pl
 jelenia-gora.so.gov.pl
 jelenia-gora.sr.gov.pl
@@ -345,7 +345,7 @@ boleslawiec.sr.gov.pl
 legnica.so.gov.pl
 legnica.sr.gov.pl
 glogow.sr.gov.pl
-jawor.gov.pl
+jawor.sr.gov.pl
 lubin.sr.gov.pl
 zlotoryja.sr.gov.pl
 opole.so.gov.pl

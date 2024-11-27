@@ -1,12 +1,16 @@
 package trialdownloader
 
 import (
+	"bytes"
 	"context"
-	"errors"
 	"fmt"
 	"net/http"
+	"strconv"
+	"strings"
 	"sync"
-	"sync/atomic"
+
+	"github.com/PuerkitoBio/goquery"
+	"golang.org/x/sync/errgroup"
 )
 
 type V1Wokanda commonDownloader
@@ -24,76 +28,170 @@ func NewV1Wokanda(client *http.Client, baseUrl string) V1Wokanda {
 // Downloads all trials.
 // date is string in format YYYY-MM-DD.
 func (d V1Wokanda) Download(ctx context.Context, date string) ([]Trial, error) {
-	// TODO: filter by date
-	return getV1(ctx, d.client, d.baseUrl)
-}
-
-// GetV1 parses all pages from type "<url>/wokanda,N".
-//
-// Url is expected in form of bare domain, ex.: https://poznan.so.gov.pl
-func getV1(ctx context.Context, client *http.Client, url string) ([]Trial, error) {
-	trialNo := 0
-	var done atomic.Bool
-	requestCh := make(chan int)
-
-	// request generator -> requestCh
-	go func() {
-		for !done.Load() {
-			trialNo++
-			requestCh <- trialNo
-		}
-		close(requestCh)
-	}()
-
-	// requestCh -> workers -> results
-	resultsCh := make(chan Trial)
-	errorsCh := make(chan error, 1)
-
-	wg := sync.WaitGroup{}
-	for range 16 {
-		wg.Add(1)
-		go func() { // worker
-			defer wg.Done()
-			for trialNo := range requestCh {
-				t, err := getOneAndParseV1(ctx, client, fmt.Sprintf("%v/wokanda,%v", url, trialNo))
-				if err != nil {
-					// ignore ErrNoDataOnPage because it's the page out of range
-					// except the first page has no data (no data at all, not in proper format)
-					if !errors.Is(err, ErrNoDataOnPage) || trialNo == 1 {
-						errorsCh <- err
-					}
-					done.Store(true)
-					<-requestCh // force generator to check done
-					break
-				}
-				resultsCh <- t
-			}
-		}()
-	}
-
-	errs := make([]error, 0)
-	go collect(errorsCh, errs)
-	results := make([]Trial, 0)
-	go collect(resultsCh, results)
-
-	wg.Wait()
-	close(errorsCh)
-	close(resultsCh)
-
-	return results, errors.Join(errs...)
-}
-
-func getOneAndParseV1(ctx context.Context, client *http.Client, url string) (Trial, error) {
-	data, err := getOne(ctx, client, url)
+	di, pages, err := d.getListPage(ctx, date, 0)
 	if err != nil {
-		return Trial{}, err
+		return nil, err
 	}
 
-	return ParseV1(data)
+	// download other pages
+	var diMu sync.Mutex
+	egPages, taskCtx := errgroup.WithContext(ctx)
+	egPages.SetLimit(8)
+	for page := range pages {
+		if page == 0 { // first page already downloaded and parsed
+			continue
+		}
+		egPages.Go(func() error {
+			diPage, _, errPage := d.getListPage(taskCtx, date, page)
+			diMu.Lock()
+			di = append(di, diPage...)
+			diMu.Unlock()
+			return errPage
+		})
+	}
+
+	err = egPages.Wait()
+	if err != nil {
+		return nil, err
+	}
+
+	// download details pages
+	var trialMu sync.Mutex
+	trials := make([]Trial, 0, len(di))
+	egDetails, taskCtx := errgroup.WithContext(ctx)
+	egDetails.SetLimit(16)
+	for _, pageIndex := range di {
+		egDetails.Go(func() error {
+			trial, err := d.getDetailPage(ctx, d.client, pageIndex)
+			if err == nil {
+				trialMu.Lock()
+				trials = append(trials, trial)
+				trialMu.Unlock()
+			}
+			return err
+		})
+	}
+
+	err = egDetails.Wait()
+
+	return trials, err
 }
 
-func collect[E any](c <-chan E, s []E) {
-	for e := range c {
-		s = append(s, e)
+// getListPage downloads list of cases (selected page)
+// returns:
+//   - indices to cases on this pages (https://<baseUrl>/wokanda,I)
+//   - number of list pages,
+//   - error
+func (d V1Wokanda) getListPage(ctx context.Context, date string, page int) (detailIndices []int, pages int, err error) {
+	// get first page, extract indices to detail page and number of next pages
+	pageContent, err := getOne(ctx, d.client, fmt.Sprintf("%v/index.php?p=cases&action=search&data=%v&s=%v", d.baseUrl, date, page))
+	if err != nil {
+		err = fmt.Errorf("parsing trial page: %w", err)
+		return
 	}
+	if !bytes.Contains(pageContent, []byte(`<form action="index.php" method="GET" class="cases-form">`)) {
+		err = fmt.Errorf("parsing trial page: %w", ErrNoDataOnPage)
+		return
+	}
+
+	doc, err := goquery.NewDocumentFromReader(bytes.NewReader(pageContent))
+	if err != nil {
+		err = fmt.Errorf("parsing trial page: %w", err)
+		return
+	}
+
+	// list of pages:
+	// <ul class="main-news-pagination list-unstyled list-inline text-center">
+	// get the last element
+	lastPage := doc.Find(`ul[class="main-news-pagination list-unstyled list-inline text-center"]`).First().Find("span.title").Last().Text()
+	lp, err := strconv.ParseUint(lastPage, 10, 64)
+	if err != nil {
+		err = fmt.Errorf("parsing trial page: %w", err)
+		return
+	}
+
+	// pages are indexed from 1, so the last number is the number of pages
+	pages = int(lp)
+
+	// get and parse index pages (extend details page indices)
+	moreLinks := doc.Find("a.more-link")
+	for i, s := range moreLinks.EachIter() {
+		href, exists := s.Attr("href")
+		if !exists {
+			err = fmt.Errorf("parsing trial page: missing link %v on page %v", i, page)
+			return
+		}
+		detailIndexStr, exists := strings.CutPrefix(href, "wokanda,")
+		if !exists {
+			err = fmt.Errorf("parsing trial page: bad format of link %v on page %v (%v)", i, page, href)
+			return
+		}
+		di, err1 := strconv.ParseUint(detailIndexStr, 10, 64)
+		if err != nil {
+			err = fmt.Errorf("parsing trial page: bad format of link %v on page %v (%v): %w", i, page, href, err1)
+			return
+		}
+		detailIndices = append(detailIndices, int(di))
+	}
+	return
+}
+
+func (d V1Wokanda) getDetailPage(ctx context.Context, client *http.Client, index int) (Trial, error) {
+	data, err := getOne(ctx, client, fmt.Sprintf("%v/wokanda,%v", d.baseUrl, index))
+	if err != nil {
+		return Trial{}, fmt.Errorf("downloading trial detail page: %w", err)
+	}
+	return parseV1DetailPage(data)
+}
+
+// parseV1DetailPage parses one page from type "<url>/wokanda,N".
+func parseV1DetailPage(data []byte) (trial Trial, err error) {
+	if !bytes.Contains(data, []byte(`<dl class="dl-horizontal case-description-list">`)) {
+		err = fmt.Errorf("parsing trial page: %w", ErrNoDataOnPage)
+		return
+	}
+
+	doc, err := goquery.NewDocumentFromReader(bytes.NewReader(data))
+	if err != nil {
+		err = fmt.Errorf("parsing trial page: %w", err)
+		return
+	}
+
+	var (
+		dateStr string
+		timeStr string
+	)
+
+	s := doc.Selection.Find("dl[class='dl-horizontal case-description-list']")
+	dts := s.Find("dt")
+	dds := s.Find("dd")
+	for i, dt := range dts.EachIter() {
+		header := dt.Text()
+		val := dds.Eq(i).Text()
+
+		switch {
+		case strings.Contains(header, "Sygnatura"):
+			trial.CaseID = val
+
+		case strings.Contains(header, "Wydział"):
+			trial.Department = val
+
+		case strings.Contains(header, "Godzina"):
+			timeStr = val
+
+		case strings.Contains(header, "Data"):
+			dateStr = val
+
+		case strings.Contains(header, "Sala"):
+			trial.Room = val
+
+		case strings.Contains(header, "Przewodniczący"):
+			trial.Judges = append(trial.Judges, val)
+		}
+
+	}
+
+	trial.Date, err = parseAndLocalizeTime(dateStr, timeStr, "15:04:05")
+
+	return
 }

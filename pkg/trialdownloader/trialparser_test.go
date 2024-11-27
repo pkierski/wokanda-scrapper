@@ -18,7 +18,7 @@ var v2 []byte
 var v2small []byte
 
 func TestParseV1(t *testing.T) {
-	trial, err := ParseV1(v1)
+	trial, err := parseV1DetailPage(v1)
 
 	assert.NoError(t, err)
 
