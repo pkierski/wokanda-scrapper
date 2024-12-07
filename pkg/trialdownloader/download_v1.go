@@ -13,6 +13,11 @@ import (
 	"golang.org/x/sync/errgroup"
 )
 
+const (
+	maxConcurrentIndexPageRequests   = 2
+	maxConcurrentDetailsPageRequests = 4
+)
+
 type V1Wokanda commonDownloader
 
 // check if V1Wokanda implements Downloader
@@ -21,7 +26,7 @@ var _ Downloader = (*V1Wokanda)(nil)
 func NewV1Wokanda(client *http.Client, baseUrl string) V1Wokanda {
 	return V1Wokanda{
 		client:  client,
-		baseUrl: baseUrl,
+		baseUrl: "https://" + baseUrl,
 	}
 }
 
@@ -36,7 +41,7 @@ func (d V1Wokanda) Download(ctx context.Context, date string) ([]Trial, error) {
 	// download other pages
 	var diMu sync.Mutex
 	egPages, taskCtx := errgroup.WithContext(ctx)
-	egPages.SetLimit(8)
+	egPages.SetLimit(maxConcurrentIndexPageRequests)
 	for page := range pages {
 		if page == 0 { // first page already downloaded and parsed
 			continue
@@ -59,7 +64,7 @@ func (d V1Wokanda) Download(ctx context.Context, date string) ([]Trial, error) {
 	var trialMu sync.Mutex
 	trials := make([]Trial, 0, len(di))
 	egDetails, taskCtx := errgroup.WithContext(ctx)
-	egDetails.SetLimit(16)
+	egDetails.SetLimit(maxConcurrentDetailsPageRequests)
 	for _, pageIndex := range di {
 		egDetails.Go(func() error {
 			trial, err := d.getDetailPage(ctx, d.client, pageIndex)
@@ -74,7 +79,7 @@ func (d V1Wokanda) Download(ctx context.Context, date string) ([]Trial, error) {
 
 	err = egDetails.Wait()
 
-	return trials, err
+	return SortTrials(trials), err
 }
 
 // getListPage downloads list of cases (selected page)
@@ -103,6 +108,7 @@ func (d V1Wokanda) getListPage(ctx context.Context, date string, page int) (deta
 	// list of pages:
 	// <ul class="main-news-pagination list-unstyled list-inline text-center">
 	// get the last element
+	// TODO: check if any (avoid error on parsing empty string)
 	lastPage := doc.Find(`ul[class="main-news-pagination list-unstyled list-inline text-center"]`).First().Find("span.title").Last().Text()
 	lp, err := strconv.ParseUint(lastPage, 10, 64)
 	if err != nil {
@@ -162,6 +168,12 @@ func parseV1DetailPage(data []byte) (trial Trial, err error) {
 		timeStr string
 	)
 
+	caseIdTitle := doc.Selection.Find("h2.main-header").Find("span.title").Text()
+	caseIdTitle = strings.ReplaceAll(caseIdTitle, "Sprawa ", "")
+	if caseIdTitle != "" {
+		trial.CaseID = caseIdTitle
+	}
+
 	s := doc.Selection.Find("dl[class='dl-horizontal case-description-list']")
 	dts := s.Find("dt")
 	dds := s.Find("dd")
@@ -171,7 +183,9 @@ func parseV1DetailPage(data []byte) (trial Trial, err error) {
 
 		switch {
 		case strings.Contains(header, "Sygnatura"):
-			trial.CaseID = val
+			if val != "" {
+				trial.CaseID = val
+			}
 
 		case strings.Contains(header, "Wydział"):
 			trial.Department = val

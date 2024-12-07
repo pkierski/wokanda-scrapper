@@ -13,7 +13,7 @@ var _ Downloader = (*V1Wokanda)(nil)
 func NewV2Wokanda(client *http.Client, baseUrl string) V2Wokanda {
 	return V2Wokanda{
 		client:  client,
-		baseUrl: baseUrl,
+		baseUrl: "https://" + baseUrl,
 	}
 }
 

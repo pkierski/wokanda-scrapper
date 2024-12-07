@@ -4,27 +4,57 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"net"
+	"net/http"
 	"os"
-	"slices"
-	"strings"
+	"time"
 
+	"github.com/hashicorp/go-cleanhttp"
 	"github.com/hashicorp/go-retryablehttp"
-	"github.com/pkierski/wokanda-scrapper/pkg/data"
 	"github.com/pkierski/wokanda-scrapper/pkg/trialdownloader"
 )
 
 func main() {
+	transport := cleanhttp.DefaultPooledTransport()
+	transport.MaxConnsPerHost = 100
+	transport.MaxIdleConns = 100
+	transport.DialContext = (&net.Dialer{
+		Timeout:   15 * time.Second,
+		KeepAlive: 30 * time.Second,
+		DualStack: true,
+	}).DialContext
 	client := retryablehttp.NewClient()
+	client.RetryMax = 7
+	client.HTTPClient = &http.Client{
+		Transport: transport,
+	}
 
-	courtsData := trialdownloader.DetectBulk(context.Background(), client.StandardClient(), data.Domains)
-	f1, err := os.Create("courts.json")
+	cd, err := trialdownloader.LoadCourtsData("courts.json")
 	if err != nil {
 		panic(err)
 	}
-	defer f1.Close()
-	encoder := json.NewEncoder(f1)
-	encoder.SetIndent("", "  ")
-	encoder.Encode(courtsData)
+
+	const date = "2024-12-04"
+	dr := trialdownloader.BulkDownload(context.Background(), client.StandardClient(), date, cd)
+
+	trialdownloader.SaveJson(fmt.Sprintf("dr_%v.json", date), dr)
+
+	// courtsData := trialdownloader.DetectBulk(context.Background(), client.StandardClient(), data.Domains)
+	// f1, err := os.Create("courts.json")
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// defer f1.Close()
+	// encoder := json.NewEncoder(f1)
+	// encoder.SetIndent("", "  ")
+	// encoder.Encode(courtsData)
+
+	// b := &bytes.Buffer{}
+	// for _, cd := range courtsData {
+	// 	isV1 := slices.Contains(cd.AppTypes, trialdownloader.AppTypeV1)
+	// 	fmt.Fprintf(b, "%v,%v\n", cd.Domain, isV1)
+	// }
+	// os.WriteFile("courts.txt", b.Bytes(), 0o644)
 
 	return
 
@@ -66,12 +96,7 @@ func main() {
 		panic(err)
 	}
 
-	slices.SortFunc(trials, func(a, b trialdownloader.Trial) int {
-		if c := strings.Compare(a.CaseID, b.CaseID); c != 0 {
-			return c
-		}
-		return a.Date.Compare(b.Date)
-	})
+	trialdownloader.SortTrials(trials)
 	j, _ := json.MarshalIndent(trials, "", "  ")
 	fmt.Println(string(j))
 }
