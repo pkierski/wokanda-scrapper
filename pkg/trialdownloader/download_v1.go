@@ -108,8 +108,12 @@ func (d V1Wokanda) getListPage(ctx context.Context, date string, page int) (deta
 	// list of pages:
 	// <ul class="main-news-pagination list-unstyled list-inline text-center">
 	// get the last element
-	// TODO: check if any (avoid error on parsing empty string)
-	lastPage := doc.Find(`ul[class="main-news-pagination list-unstyled list-inline text-center"]`).First().Find("span.title").Last().Text()
+	// check if any (avoid error on parsing empty string)
+	lastPageList := doc.Find(`ul[class="main-news-pagination list-unstyled list-inline text-center"]`)
+	if lastPageList.Length() == 0 {
+		return
+	}
+	lastPage := lastPageList.First().Find("span.title").Last().Text()
 	lp, err := strconv.ParseUint(lastPage, 10, 64)
 	if err != nil {
 		err = fmt.Errorf("parsing trial page: %w", err)

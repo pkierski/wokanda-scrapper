@@ -34,7 +34,7 @@ func main() {
 		panic(err)
 	}
 
-	const date = "2024-12-04"
+	const date = "2024-12-06"
 	dr := trialdownloader.BulkDownload(context.Background(), client.StandardClient(), date, cd)
 
 	trialdownloader.SaveJson(fmt.Sprintf("dr_%v.json", date), dr)
