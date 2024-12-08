@@ -28,34 +28,23 @@ func BulkDownload(ctx context.Context, client *http.Client, date string, courtDa
 
 	for _, cd := range courtData {
 		eg.Go(func() error {
-			dr := DownloadResult{
-				CourtID: cd.Domain,
-				Date:    date,
+			downloader, err := createDownloader(client, cd)
+
+			var trials []Trial
+			if err == nil {
+				trials, err = downloader.Download(taskCtx, date)
 			}
 
-			if len(cd.AppTypes) == 1 {
-				var downloader Downloader
-				switch cd.AppTypes[0] {
-				case AppTypeV1:
-					downloader = NewV1Wokanda(client, cd.Domain)
-				}
-				if downloader == nil {
-					dr.Err = fmt.Errorf("unknown or app type: %v", cd.AppTypes).Error()
-				} else {
-					trials, err := downloader.Download(taskCtx, date)
-					var errStr string
-					if err != nil {
-						errStr = err.Error()
-					}
-					dr = DownloadResult{
-						CourtID: cd.Domain,
-						Err:     errStr,
-						Trials:  trials,
-						Date:    date,
-					}
-				}
-			} else {
-				dr.Err = fmt.Errorf("unknown or ambiguous app type: %v", cd.AppTypes).Error()
+			var errStr string
+			if err != nil {
+				errStr = err.Error()
+			}
+
+			dr := DownloadResult{
+				CourtID: cd.Domain,
+				Err:     errStr,
+				Trials:  trials,
+				Date:    date,
 			}
 
 			resultMu.Lock()
@@ -99,4 +88,21 @@ func SaveJson[T any](filename string, data T) error {
 	encoder := json.NewEncoder(f)
 	encoder.SetIndent("", "  ")
 	return encoder.Encode(data)
+}
+
+func createDownloader(client *http.Client, court CourtData) (downloader Downloader, err error) {
+	if len(court.AppTypes) != 1 {
+		return nil, fmt.Errorf("unknown or ambiguous app type: %v", court.AppTypes)
+	}
+
+	switch court.AppTypes[0] {
+	case AppTypeV1:
+		downloader = NewV1Wokanda(client, court.Domain)
+	}
+
+	if downloader == nil {
+		err = fmt.Errorf("unknown or app type: %v", court.AppTypes)
+	}
+
+	return downloader, err
 }
