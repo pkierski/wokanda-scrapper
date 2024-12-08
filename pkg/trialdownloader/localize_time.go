@@ -1,6 +1,9 @@
 package trialdownloader
 
-import "time"
+import (
+	"fmt"
+	"time"
+)
 
 var (
 	warsawTime = func() *time.Location {
@@ -18,7 +21,17 @@ var (
 	}()
 )
 
-func parseAndLocalizeTime(dateStr, timeStr string, timeLayout string) (time.Time, error) {
+func parseAndLocalizeTime(dateStr, timeStr string) (time.Time, error) {
+	if len(timeStr) == 5 {
+		return parseAndLocalizeTimeWithTimeLayout(dateStr, timeStr, "15:04")
+	}
+	if len(timeStr) == 8 {
+		return parseAndLocalizeTimeWithTimeLayout(dateStr, timeStr, "15:04:05")
+	}
+	return time.Time{}, fmt.Errorf("can't parse date and time: '%v', '%v'", dateStr, timeStr)
+}
+
+func parseAndLocalizeTimeWithTimeLayout(dateStr, timeStr string, timeLayout string) (time.Time, error) {
 	t, err := time.Parse("2006-01-02 "+timeLayout, dateStr+" "+timeStr)
 	if err != nil {
 		return time.Time{}, err

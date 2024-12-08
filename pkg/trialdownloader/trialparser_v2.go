@@ -50,7 +50,7 @@ func ParseV2(data []byte) (trials []Trial, err error) {
 			}
 		}
 
-		trial.Date, err = parseAndLocalizeTime(strDate, strTime, "15:04")
+		trial.Date, err = parseAndLocalizeTime(strDate, strTime)
 		if err != nil {
 			return nil, fmt.Errorf("parsing trial page (case: %v): %w", i, err)
 		}

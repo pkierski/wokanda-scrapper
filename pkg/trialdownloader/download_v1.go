@@ -209,7 +209,7 @@ func parseV1DetailPage(data []byte) (trial Trial, err error) {
 
 	}
 
-	trial.Date, err = parseAndLocalizeTime(dateStr, timeStr, "15:04:05")
+	trial.Date, err = parseAndLocalizeTime(dateStr, timeStr)
 
 	return
 }
