@@ -1,0 +1,2114 @@
+[
+  {
+    "domain": "bialystok.sa.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "bialystok.so.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "bialystok.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "bielsk-podlaski.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "sokolka.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "lomza.so.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "grajewo.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "lomza.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "zambrow.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "wysmaz.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "olsztyn.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "bartoszyce.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "biskupiec.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "gizycko.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "ketrzyn.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "lidzbarkwarminski.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "mragowo.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "nidzica.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "olsztyn.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "pisz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "szczytno.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "ostroleka.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "ostroleka.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "ostrowmaz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "przasnysz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "pultusk.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "wyszkow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "suwalki.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "augustow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "elk.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "olecko.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "suwalki.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "gdansk.sa.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "bydgoszcz.so.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "bydgoszcz.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "bip.inowroclaw.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "mogilno.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "naklo.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "szubin.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "swiecie.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "tuchola.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "znin.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "elblag.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "braniewo.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "dzialdowo.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "elblag.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "ilawa.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "nowemiastolubawskie.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "ostroda.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "gdansk.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "gdansk-poludnie.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "gdansk-polnoc.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "gdynia.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "www.kartuzy.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "koscierzyna.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "kwidzyn.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "malbork.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "sopot.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "starogard-gd.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "tczew.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "wejherowo.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "slupsk.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "slupsk.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "lebork.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "chojnice.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "miastko.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "bytow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "czluchow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "torun.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "brodnica.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "chelmno.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "golubdobrzyn.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "grudziadz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "wabrzezno.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "torun.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "wloclawek.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "aleksandrowkuj.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "lipno.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "radziejow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "rypin.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "wloclawek.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "katowice.sa.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "bielsko-biala.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "bielsko-biala.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "cieszyn.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "zywiec.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "czestochowa.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "czestochowa.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "lubliniec.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "myszkow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "gliwice.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "gliwice.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "ruda-slaska.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "tgory.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "zabrze.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "rybnik.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "jastrzebie.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "raciborz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "rybnik.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "wodzislaw.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "zory.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "katowice.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "bytom.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "chorzow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "katowice-wschod.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "katowice-zachod.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "mikolow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "myslowice.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "pszczyna.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "siemianowice.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "tychy.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "sosnowiec.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "bedzin.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "czeladz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "dabrowag.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "jaworzno.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "sosnowiec.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "zawiercie.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "krakow.sa.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "kielce.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "busko.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "jedrzejow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "kielce.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "konskie.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "opatow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "ostrowiec.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "pinczow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "sandomierz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "skarzysko.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "starachowice.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "staszow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "wloszczowa.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "krakow.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "krakow-krowodrza.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "krakow-nowahuta.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "krakow-podgorze.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "krakow-sr.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "chrzanow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "miechow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "myslenice.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "olkusz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "oswiecim.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "suchab.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "wadowice.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "wieliczka.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "nowysacz.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "gorlice.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "nowysacz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "limanowa.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "nowytarg.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "zakopane.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "tarnow.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "brzesko.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "dabrowatar.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "bochnia.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "www.tarnow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "lublin.sa.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "lublin.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "bialapodlaska.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "chelm.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "krasnik.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "lubartow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "lublin-wschod.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "lublin-zachod.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "opolelubelskie.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "pulawy.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "radzyn.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "ryki.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "wlodawa.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "radom.so.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "grojec.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "kozienice.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "lipsko.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "przysucha.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "radom.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "szydlowiec.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "zwolen.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "siedlce.so.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "garwolin.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "lukow.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "minsk-mazowiecki.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "wegrow.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "sokolow-podlaski.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "siedlce.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "zamosc.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "bilgoraj.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "hrubieszow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "janowlubelski.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "krasnystaw.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "tomaszowlub.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "zamosc.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "lodz.sa.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "kalisz.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "kalisz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "ostrow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "jarocin.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "pleszew.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "kepno.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "ostrzeszow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "krotoszyn.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "lodz.so.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "kutno.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "lowicz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "leczyca.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "pabianice.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "skierniewice.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "zgierz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "lodz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "brzeziny.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "widzew.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "rawa.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "piotrkow-tryb.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "belchatow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "opoczno.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "piotrkow-tryb.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "radomsko.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "tomaszow-maz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "plock.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "plock.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "ciechanow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "gostynin.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "mlawa.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "sochaczew.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "plonsk.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "sierpc.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "zyrardow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "sieradz.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "sieradz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "lask.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "wielun.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "zdwola.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "poznan.sa.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "konin.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "konin.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "kolo.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "slupca.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "turek.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "poznan.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "chodziez.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "gniezno.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "gostyn.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "grodziskwlkp.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "koscian.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "leszno.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "nowytomysl.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "oborniki.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "pila.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "poznan-grunwald.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "poznan-nowemiasto.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "poznan-staremiasto.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "rawicz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "szamotuly.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "srem.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "srodawlkp.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "trzcianka.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "wagrowiec.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "wolsztyn.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "wrzesnia.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "zlotow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "zielona-gora.so.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "krosno-odrz.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "nowa-sol.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "swiebodzin.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "wschowa.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "zielona-gora.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "zagan.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "zary.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "rzeszow.sa.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "przemysl.so.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "jaroslaw.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "przeworsk.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "lubaczow.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "przemysl.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "krosno.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "brzozow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "jaslo.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "krosno.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "lesko.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "sanok.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "rzeszow.so.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "ropczyce.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "lezajsk.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "lancut.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "debica.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "rzeszow.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "strzyzow.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "tarnobrzeg.so.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "nisko.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "mielec.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "stalowawola.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "tarnobrzeg.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "kolbuszowa.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "szczecin.sa.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "szczecin.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "gryfice.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "szczecin-pz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "szczecin-centrum.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "swinoujscie.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "stargard.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "mysliborz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "goleniow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "gryfino.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "lobez.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "kamien.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "choszczno.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "koszalin.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "koszalin.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "kolobrzeg.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "walcz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "bialogard.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "drawsko-pom.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "szczecinek.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "slawno.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "gorzow-wlkp.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "gorzow-wlkp.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "slubice.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "strzelce-kraj.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "sulecin.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "miedzyrzecz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "waw.sa.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "bip.warszawa.so.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "warszawa.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "warszawa-srodmiescie.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "warszawa-zoliborz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "mokotow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "warszawa-wola.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "grodzisk.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "piaseczno.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "pruszkow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "warszawapraga.so.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "legionowo.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "nowydwormaz.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "otwock.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "warszawa-pragapoludnie.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "warszawapraga-pln.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "bip.wolomin.sr.gov.pl",
+    "app_types": []
+  },
+  {
+    "domain": "wroclaw.sa.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "jelenia-gora.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "jelenia-gora.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "luban.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "lwowekslaski.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "zgorzelec.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "kamienna-gora.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "boleslawiec.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "legnica.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "legnica.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "glogow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "jawor.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "lubin.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "zlotoryja.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "opole.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "strzelce.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "kozle.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "opole.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "olesno.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "kluczbork.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "glubczyce.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "nysa.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "prudnik.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "brzeg.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "swidnica.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "dzierzoniow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "swidnica.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "klodzko.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "walbrzych.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "zabkowice.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "wroclaw.so.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "wolow.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "milicz.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "strzelin.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "wroclaw-fabryczna.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "wroclaw-krzyki.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "wroclaw-srodmiescie.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "olawa.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "olesnica.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "trzebnica.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  },
+  {
+    "domain": "srodaslaska.sr.gov.pl",
+    "app_types": [
+      "V1:url/wokanda,I"
+    ]
+  }
+]
