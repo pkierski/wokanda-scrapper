@@ -5,6 +5,7 @@ import (
 	"context"
 	"fmt"
 	"net/http"
+	"slices"
 	"strconv"
 	"strings"
 	"sync"
@@ -79,7 +80,12 @@ func (d V1Wokanda) Download(ctx context.Context, date string) ([]Trial, error) {
 
 	err = egDetails.Wait()
 
-	return SortTrials(trials), err
+	// sort and compact trials
+	// some courts add the same entry many times
+	trials = slices.CompactFunc(SortTrials(trials), func(a, b Trial) bool {
+		return a.Compare(b) == 0
+	})
+	return trials, err
 }
 
 // getListPage downloads list of cases (selected page)
@@ -160,6 +166,9 @@ func parseV1DetailPage(data []byte) (trial Trial, err error) {
 		err = fmt.Errorf("parsing trial page: %w", ErrNoDataOnPage)
 		return
 	}
+
+	// TODO: after tests 2024-12-09
+	// trial.Judges = make([]string, 0)
 
 	doc, err := goquery.NewDocumentFromReader(bytes.NewReader(data))
 	if err != nil {

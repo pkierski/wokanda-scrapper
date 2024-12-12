@@ -26,7 +26,7 @@ type resultType struct {
 
 func BulkV1Test(ctx context.Context, client *http.Client) ([]string, []bool) {
 	eg, taskCtx := errgroup.WithContext(ctx)
-	eg.SetLimit(128)
+	//eg.SetLimit(128)
 
 	domains := slices.Clone(data.Domains)
 	// TODO: remove already checked

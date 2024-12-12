@@ -14,10 +14,10 @@ import (
 )
 
 type DownloadResult struct {
-	CourtID string
-	Err     string
-	Trials  []Trial
-	Date    string
+	CourtID string  `json:"court_id"`
+	Err     string  `json:"err"`
+	Trials  []Trial `json:"trials"`
+	Date    string  `json:"date"`
 }
 
 func BulkDownload(ctx context.Context, client *http.Client, date string, courtData []CourtData) []DownloadResult {
