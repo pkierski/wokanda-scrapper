@@ -9,16 +9,25 @@ import (
 	"slices"
 	"strings"
 	"sync"
+	"time"
 
 	"golang.org/x/sync/errgroup"
 )
 
-type DownloadResult struct {
-	CourtID string  `json:"court_id"`
-	Err     string  `json:"err"`
-	Trials  []Trial `json:"trials"`
-	Date    string  `json:"date"`
-}
+type (
+	DownloadResult struct {
+		CourtID string  `json:"court_id"`
+		Err     string  `json:"err"`
+		Trials  []Trial `json:"trials"`
+		Date    string  `json:"date"`
+		Fetch   fetch   `json:"fetch"`
+	}
+
+	fetch struct {
+		Start time.Time `json:"start"`
+		End   time.Time `json:"end"`
+	}
+)
 
 func BulkDownload(ctx context.Context, client *http.Client, date string, courtData []CourtData) []DownloadResult {
 	result := make([]DownloadResult, 0, len(courtData))
@@ -30,10 +39,12 @@ func BulkDownload(ctx context.Context, client *http.Client, date string, courtDa
 		eg.Go(func() error {
 			downloader, err := createDownloader(client, cd)
 
+			start := time.Now().UTC()
 			var trials []Trial
 			if err == nil {
 				trials, err = downloader.Download(taskCtx, date)
 			}
+			end := time.Now().UTC()
 
 			var errStr string
 			if err != nil {
@@ -45,12 +56,16 @@ func BulkDownload(ctx context.Context, client *http.Client, date string, courtDa
 				Err:     errStr,
 				Trials:  trials,
 				Date:    date,
+				Fetch: fetch{
+					Start: start,
+					End:   end,
+				},
 			}
 
 			resultMu.Lock()
 			result = append(result, dr)
 			resultMu.Unlock()
-			SaveJson(fmt.Sprintf("dr_%v_%v.json", dr.Date, dr.CourtID), dr)
+			//SaveJson(fmt.Sprintf("dr_%v_%v.json", dr.Date, dr.CourtID), dr)
 			return nil
 		})
 	}
