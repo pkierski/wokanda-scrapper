@@ -79,7 +79,7 @@ func (d V1Wokanda) Download(ctx context.Context, date string) ([]Trial, error) {
 
 	err = egDetails.Wait()
 
-	normalizeTrials(trials)
+	trials = normalizeTrials(trials)
 	return trials, err
 }
 

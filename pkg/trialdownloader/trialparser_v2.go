@@ -89,6 +89,6 @@ func ParseV2(data []byte) (trials []Trial, err error) {
 		trials[i] = trial
 	}
 
-	normalizeTrials(trials)
+	trials = normalizeTrials(trials)
 	return trials, nil
 }

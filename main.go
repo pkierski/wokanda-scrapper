@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"log"
 	"maps"
 	"net"
 	"net/http"
@@ -19,13 +20,6 @@ import (
 )
 
 func main() {
-	// judges, err := extractJudges(`dr_2024-12-13.json`)
-	// if err != nil {
-	// 	panic(err)
-	// }
-
-	// fmt.Println(strings.Join(judges, "\n"))
-	// return
 	insecureSkipVerify := flag.Bool("insecure-skip-verify", false, "Don't check server certificate (default false)")
 	const todayPlaceholder = "today"
 	scrapDate := flag.String("scrap-date", todayPlaceholder, "Scrap trials from specified date: format YYYY-MM-DD")
@@ -37,9 +31,32 @@ func main() {
 		*scrapDate = time.Now().AddDate(0, 0, *relativeScrapDate).Format("2006-01-02")
 	}
 
-	// fmt.Println(*insecureSkipVerify, *scrapDate)
-	// return
+	cd, err := trialdownloader.LoadCourtsData("courts.json")
+	if err != nil {
+		panic(err)
+	}
 
+	date := *scrapDate
+	start := time.Now().Format("2006-01-02T15-04-05")
+	dateAndStart := fmt.Sprintf("%v_fetched-%v", date, start)
+
+	logFile, err := os.Create(fmt.Sprintf("trials_%v.log", dateAndStart))
+	if err != nil {
+		panic(err)
+	}
+	defer logFile.Close()
+	httpLogger := log.New(logFile, "[http] ", log.LUTC|log.Lmicroseconds|log.Ldate)
+
+	client := prepareClient(*insecureSkipVerify)
+
+	client.Logger = httpLogger
+
+	dr := trialdownloader.BulkDownload(context.Background(), client.StandardClient(), date, cd)
+
+	trialdownloader.SaveJson(fmt.Sprintf("trials_%v.json", dateAndStart), dr)
+}
+
+func prepareClient(insecureSkipVerify bool) *retryablehttp.Client {
 	transport := cleanhttp.DefaultPooledTransport()
 	transport.MaxConnsPerHost = 1000
 	transport.MaxIdleConns = 0
@@ -48,25 +65,14 @@ func main() {
 		KeepAlive: 30 * time.Second,
 		DualStack: true,
 	}).DialContext
-	transport.TLSClientConfig = &tls.Config{InsecureSkipVerify: *insecureSkipVerify}
+	transport.TLSClientConfig = &tls.Config{InsecureSkipVerify: insecureSkipVerify}
 	client := retryablehttp.NewClient()
 	client.RetryMax = 7
 	client.RetryWaitMax = 10 * time.Second
 	client.HTTPClient = &http.Client{
 		Transport: transport,
 	}
-
-	cd, err := trialdownloader.LoadCourtsData("courts.json")
-	if err != nil {
-		panic(err)
-	}
-
-	date := *scrapDate
-
-	start := time.Now().Format("2006-01-02T15-04-05")
-	dr := trialdownloader.BulkDownload(context.Background(), client.StandardClient(), date, cd)
-
-	trialdownloader.SaveJson(fmt.Sprintf("trials_%v_fetched-%v.json", date, start), dr)
+	return client
 }
 
 func extractJudges(filename string) (result []string, err error) {

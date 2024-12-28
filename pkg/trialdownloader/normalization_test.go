@@ -20,7 +20,8 @@ func TestNormalization(t *testing.T) {
 			},
 		},
 	}
-	normalizeTrials(trials)
+
+	trials = normalizeTrials(trials)
 
 	assert.Equal(t, trials, []Trial{
 		{
@@ -33,6 +34,50 @@ func TestNormalization(t *testing.T) {
 			Judges: []string{
 				"second",
 				"thrid with-fancy-name-here",
+			},
+		},
+	})
+}
+
+func TestNormalizationCompact(t *testing.T) {
+	trials := []Trial{
+		{
+			CaseID:     "foo",
+			Department: "bar",
+			Judges: []string{
+				"first",
+			},
+		},
+		{
+			CaseID:     "foo",
+			Department: "bar",
+			Judges: []string{
+				"first",
+			},
+		},
+		{
+			CaseID:     "foo",
+			Department: "bar",
+			Judges: []string{
+				"first",
+			},
+		},
+		{
+			CaseID:     "foo",
+			Department: "bar",
+			Judges: []string{
+				"first",
+			},
+		},
+	}
+	trials = normalizeTrials(trials)
+
+	assert.Equal(t, trials, []Trial{
+		{
+			CaseID:     "foo",
+			Department: "bar",
+			Judges: []string{
+				"first",
 			},
 		},
 	})
