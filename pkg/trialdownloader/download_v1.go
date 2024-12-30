@@ -111,18 +111,20 @@ func (d V1Wokanda) getListPage(ctx context.Context, date string, page int) (deta
 	// get the last element
 	// check if any (avoid error on parsing empty string)
 	lastPageList := doc.Find(`ul[class="main-news-pagination list-unstyled list-inline text-center"]`)
-	if lastPageList.Length() == 0 {
-		return
-	}
-	lastPage := lastPageList.First().Find("span.title").Last().Text()
-	lp, err := strconv.ParseUint(lastPage, 10, 64)
-	if err != nil {
-		err = fmt.Errorf("parsing trial page: %w", err)
-		return
-	}
+	if lastPageList.Length() != 0 {
+		lastPage := lastPageList.First().Find("span.title").Last().Text()
+		lp, err1 := strconv.ParseUint(lastPage, 10, 64)
+		if err1 != nil {
+			err = fmt.Errorf("parsing trial page: %w", err1)
+			return
+		}
 
-	// pages are indexed from 1, so the last number is the number of pages
-	pages = int(lp)
+		// pages are indexed from 1, so the last number is the number of pages
+		pages = int(lp)
+	} else {
+		// no pagination means only one page
+		pages = 1
+	}
 
 	// get and parse index pages (extend details page indices)
 	moreLinks := doc.Find("a.more-link")
@@ -190,8 +192,8 @@ func parseV1DetailPage(data []byte) (trial Trial, err error) {
 		val := dds.Eq(i).Text()
 
 		switch {
-		case strings.Contains(header, "Sygnatura"):
-			if val != "" {
+		case strings.Contains(header, "Sygnatura sprawy"):
+			if trial.CaseID == "" && val != "" {
 				trial.CaseID = val
 			}
 
