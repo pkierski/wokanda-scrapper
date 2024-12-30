@@ -31,10 +31,12 @@ func doOne(ctx context.Context, client *http.Client, method string, url string, 
 	if err != nil {
 		return nil, fmt.Errorf("fetch page: request: %w", err)
 	}
+
+	defer resp.Body.Close()
+
 	if resp.StatusCode != http.StatusOK {
 		return nil, fmt.Errorf("fetch page: unexpected status: %v (%v)", resp.StatusCode, resp.Status)
 	}
-	defer resp.Body.Close()
 
 	data, err := io.ReadAll(resp.Body)
 	if err != nil {

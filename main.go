@@ -35,6 +35,12 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	// cd = []trialdownloader.CourtData{
+	// 	{
+	// 		Domain:   "krakow.so.gov.pl",
+	// 		AppTypes: []trialdownloader.AppType{trialdownloader.AppTypeV1},
+	// 	},
+	// }
 
 	date := *scrapDate
 	start := time.Now().Format("2006-01-02T15-04-05")
