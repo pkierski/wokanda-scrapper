@@ -12,9 +12,15 @@ import (
 func main() {
 	sourcePath := flag.String("source", "storage", "source path")
 	destinationPath := flag.String("destination", "storage", "destination path")
-	daysBefore := flag.Int("days", 7, "days before")
+	daysBefore := flag.Int("days", -1, "days before")
 	removeSource := flag.Bool("remove-source", false, "remove source")
+
 	flag.Parse()
+
+	if *sourcePath == "" || *destinationPath == "" || *daysBefore <= 0 {
+		flag.Usage()
+		return
+	}
 
 	logFile, err := os.OpenFile("cleaner.log", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0644)
 	if err != nil {
