@@ -12,12 +12,14 @@ import (
 func main() {
 	sourcePath := flag.String("source", "storage", "source path")
 	destinationPath := flag.String("destination", "storage", "destination path")
-	daysBefore := flag.Int("days", -1, "days before")
+	daysBeforeStart := flag.Int("days-start", -1, "days before (start)")
+	daysBeforeCount := flag.Int("days-count", 1, "days before (count)")
 	removeSource := flag.Bool("remove-source", false, "remove source")
+	dryRun := flag.Bool("dry-run", false, "dry run")
 
 	flag.Parse()
 
-	if *sourcePath == "" || *destinationPath == "" || *daysBefore <= 0 {
+	if *sourcePath == "" || *destinationPath == "" || *daysBeforeStart <= 0 {
 		flag.Usage()
 		return
 	}
@@ -30,8 +32,10 @@ func main() {
 
 	logger := log.New(io.MultiWriter(os.Stderr, logFile), "[cleaner] ", log.LUTC|log.Lmicroseconds|log.Ldate)
 
-	err = cleaner.Archive(*daysBefore, *sourcePath, *destinationPath, *removeSource)
-	if err != nil {
-		logger.Fatal(err)
+	for daysBefore := *daysBeforeStart; daysBefore < *daysBeforeStart+*daysBeforeCount; daysBefore++ {
+		err = cleaner.Archive(daysBefore, *sourcePath, *destinationPath, *removeSource, *dryRun)
+		if err != nil {
+			logger.Fatal(err)
+		}
 	}
 }

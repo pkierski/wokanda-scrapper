@@ -101,8 +101,14 @@ func archiveFiles(output string, files []string) error {
 	return createArchive(files, out)
 }
 
-func Archive(daysBefore int, filesPath, archPath string, removeSource bool) error {
+func Archive(daysBefore int, filesPath, archPath string, removeSource bool, dryRun bool) error {
 	archName, files := archPathAndFiles(time.Now(), daysBefore, filesPath, archPath)
+
+	if dryRun {
+		fmt.Printf("Would archive %v files to %v\n", len(files), archName)
+		return nil
+	}
+
 	if len(files) == 0 {
 		return nil
 	}
