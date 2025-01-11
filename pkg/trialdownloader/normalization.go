@@ -37,8 +37,8 @@ func splitJudges(t *Trial) {
 
 var (
 	reHypenWithSpaces = regexp.MustCompile(` ?- ?`)
-	reRemovePrefixes  = regexp.MustCompile("^(([Ss]ędzia)|(([Aa]sesor|[Rr]eferendarz)( +sądowy)?)|(SS[AOR]))")
-	reRemoveSuffixes  = regexp.MustCompile("- +(([Pp]rzewodniczący)|([Ss]ędzia)([Łł]awnik))$")
+	reRemovePrefixes  = regexp.MustCompile("^ *(([Ss]ędzia)|(([Aa]sesor|[Rr]eferendarz)( +sądowy)?)|(SS[AOR]))")
+	reRemoveSuffixes  = regexp.MustCompile("- *(([Pp]rzewodniczący)|([Ss]ędzia)([Łł]awnik))$")
 )
 
 func normalizeJudgeName(j string) string {
