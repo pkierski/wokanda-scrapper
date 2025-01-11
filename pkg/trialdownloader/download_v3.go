@@ -15,7 +15,7 @@ import (
 )
 
 const (
-	maxPerPageV3 = 10
+	maxPerPageV3 = 50
 )
 
 type V3Wokanda commonDownloader
@@ -112,6 +112,8 @@ func parseV3PageTrials(doc *goquery.Document) (trials []Trial, err error) {
 				timeStr = valStr
 			case strings.Contains(headerStr, "Skład"):
 				judgesStr = valStr
+			case strings.Contains(headerStr, "Przewodniczący"), strings.Contains(headerStr, "Ławnicy"):
+				trial.Judges = append(trial.Judges, strings.Split(valStr, ",")...)
 			}
 		}
 
@@ -120,7 +122,9 @@ func parseV3PageTrials(doc *goquery.Document) (trials []Trial, err error) {
 			return nil, fmt.Errorf("parsing trial page: %w", err)
 		}
 
-		trial.Judges = parseJudges(judgesStr)
+		if judgesStr != "" {
+			trial.Judges = append(trial.Judges, parseJudges(judgesStr)...)
+		}
 
 		trials = append(trials, trial)
 	}
@@ -139,9 +143,15 @@ func parseJudges(judgesStr string) []string {
 func parseAndLocalizeTimeV3(dateStr, timeStr string) (time.Time, error) {
 	timeStrSplit := strings.Split(timeStr, "-")
 	if len(timeStr) < 1 {
-		return time.Time{}, fmt.Errorf("parsing time")
+		fields := strings.Fields(dateStr)
+		if len(fields) != 2 {
+			return time.Time{}, fmt.Errorf("parsing date")
+		}
+		dateStr = fields[0]
+		timeStr = fields[1]
+	} else {
+		timeStr = strings.TrimSpace(timeStrSplit[0])
 	}
-	timeStr = strings.TrimSpace(timeStrSplit[0])
 	date, err := time.Parse("02.01.2006 15:04", dateStr+" "+timeStr)
 	if err != nil {
 		return time.Time{}, err
