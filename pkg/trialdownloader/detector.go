@@ -16,12 +16,14 @@ type CourtData struct {
 }
 
 const (
-	AppTypeV1 AppType = "V1:url/wokanda,I"
+	AppTypeV1                 AppType = "V1:url/wokanda,I"
+	AppTypeV3LogonetBydgoszcz AppType = "V3:logonet-bydgoszcz-okreg"
 )
 
 func Detect(ctx context.Context, client *http.Client, baseUrl string) (result []AppType) {
 	detectors := [](func(ctx context.Context, client *http.Client, baseUrl string) (bool, AppType)){
 		detectV1,
+		detectV3Bydgoszcz,
 	}
 
 	var resultMu sync.Mutex
@@ -72,6 +74,18 @@ func detectV1(ctx context.Context, client *http.Client, baseUrl string) (found b
 	found = bytes.Contains(page, []byte(`<form action="index.php" method="GET" class="cases-form">`)) &&
 		bytes.Contains(page, []byte(`<input name="p" type="hidden" value="cases"`)) &&
 		bytes.Contains(page, []byte(`<input name="action" type="hidden" value="search"`))
+
+	return
+}
+
+func detectV3Bydgoszcz(ctx context.Context, client *http.Client, baseUrl string) (found bool, typ AppType) {
+	typ = AppTypeV3LogonetBydgoszcz
+	page, err := getOne(ctx, client, fmt.Sprintf("https://%v", baseUrl))
+	if err != nil {
+		return
+	}
+
+	found = bytes.Contains(page, []byte(`CMS i hosting: Logonet Sp. z o.o. w Bydgoszczy`))
 
 	return
 }

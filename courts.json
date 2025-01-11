@@ -47,9 +47,7 @@
   },
   {
     "domain": "bartoszyce.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "biskupiec.sr.gov.pl",
@@ -77,9 +75,7 @@
   },
   {
     "domain": "mragowo.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "nidzica.sr.gov.pl",
@@ -155,9 +151,7 @@
   },
   {
     "domain": "elk.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "olecko.sr.gov.pl",
@@ -177,39 +171,57 @@
   },
   {
     "domain": "bydgoszcz.so.gov.pl",
-    "app_types": []
+    "app_types": [
+      "V3:logonet-bydgoszcz-okreg"
+    ]
   },
   {
     "domain": "bydgoszcz.sr.gov.pl",
-    "app_types": []
+    "app_types": [
+      "V3:logonet-bydgoszcz-okreg"
+    ]
   },
   {
     "domain": "bip.inowroclaw.sr.gov.pl",
-    "app_types": []
+    "app_types": [
+      "V3:logonet-bydgoszcz-okreg"
+    ]
   },
   {
     "domain": "mogilno.sr.gov.pl",
-    "app_types": []
+    "app_types": [
+      "V3:logonet-bydgoszcz-okreg"
+    ]
   },
   {
     "domain": "naklo.sr.gov.pl",
-    "app_types": []
+    "app_types": [
+      "V3:logonet-bydgoszcz-okreg"
+    ]
   },
   {
     "domain": "szubin.sr.gov.pl",
-    "app_types": []
+    "app_types": [
+      "V3:logonet-bydgoszcz-okreg"
+    ]
   },
   {
     "domain": "swiecie.sr.gov.pl",
-    "app_types": []
+    "app_types": [
+      "V3:logonet-bydgoszcz-okreg"
+    ]
   },
   {
     "domain": "tuchola.sr.gov.pl",
-    "app_types": []
+    "app_types": [
+      "V3:logonet-bydgoszcz-okreg"
+    ]
   },
   {
     "domain": "znin.sr.gov.pl",
-    "app_types": []
+    "app_types": [
+      "V3:logonet-bydgoszcz-okreg"
+    ]
   },
   {
     "domain": "elblag.so.gov.pl",
@@ -267,9 +279,7 @@
   },
   {
     "domain": "gdansk-polnoc.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "gdynia.sr.gov.pl",
@@ -277,15 +287,11 @@
   },
   {
     "domain": "www.kartuzy.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "koscierzyna.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "kwidzyn.sr.gov.pl",
@@ -295,45 +301,31 @@
   },
   {
     "domain": "malbork.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "sopot.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "starogard-gd.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "tczew.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "wejherowo.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "slupsk.so.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "slupsk.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "lebork.sr.gov.pl",
@@ -355,9 +347,7 @@
   },
   {
     "domain": "bytow.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "czluchow.sr.gov.pl",
@@ -367,9 +357,7 @@
   },
   {
     "domain": "torun.so.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "brodnica.sr.gov.pl",
@@ -391,15 +379,11 @@
   },
   {
     "domain": "grudziadz.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "wabrzezno.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "torun.sr.gov.pl",
@@ -409,9 +393,7 @@
   },
   {
     "domain": "wloclawek.so.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "aleksandrowkuj.sr.gov.pl",
@@ -421,33 +403,23 @@
   },
   {
     "domain": "lipno.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "radziejow.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "rypin.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "wloclawek.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "katowice.sa.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "bielsko-biala.so.gov.pl",
@@ -457,15 +429,11 @@
   },
   {
     "domain": "bielsko-biala.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "cieszyn.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "zywiec.sr.gov.pl",
@@ -475,27 +443,19 @@
   },
   {
     "domain": "czestochowa.so.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "czestochowa.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "lubliniec.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "myszkow.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "gliwice.so.gov.pl",
@@ -511,21 +471,15 @@
   },
   {
     "domain": "ruda-slaska.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "tgory.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "zabrze.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "rybnik.so.gov.pl",
@@ -535,9 +489,7 @@
   },
   {
     "domain": "jastrzebie.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "raciborz.sr.gov.pl",
@@ -559,9 +511,7 @@
   },
   {
     "domain": "zory.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "katowice.so.gov.pl",
@@ -649,21 +599,15 @@
   },
   {
     "domain": "jaworzno.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "sosnowiec.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "zawiercie.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "krakow.sa.gov.pl",
@@ -1099,27 +1043,19 @@
   },
   {
     "domain": "pleszew.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "kepno.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "ostrzeszow.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "krotoszyn.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "lodz.so.gov.pl",
@@ -1131,15 +1067,11 @@
   },
   {
     "domain": "lowicz.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "leczyca.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "pabianice.sr.gov.pl",
@@ -1167,9 +1099,7 @@
   },
   {
     "domain": "brzeziny.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "widzew.sr.gov.pl",
@@ -1179,9 +1109,7 @@
   },
   {
     "domain": "rawa.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "piotrkow-tryb.so.gov.pl",
@@ -1215,27 +1143,19 @@
   },
   {
     "domain": "tomaszow-maz.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "plock.so.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "plock.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "ciechanow.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "gostynin.sr.gov.pl",
@@ -1245,57 +1165,39 @@
   },
   {
     "domain": "mlawa.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "sochaczew.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "plonsk.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "sierpc.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "zyrardow.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "sieradz.so.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "sieradz.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "lask.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "wielun.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "zdwola.sr.gov.pl",
@@ -1603,9 +1505,7 @@
   },
   {
     "domain": "mielec.sr.gov.pl",
-    "app_types": [
-      "V1:url/wokanda,I"
-    ]
+    "app_types": []
   },
   {
     "domain": "stalowawola.sr.gov.pl",
@@ -1789,7 +1689,9 @@
   },
   {
     "domain": "bip.warszawa.so.gov.pl",
-    "app_types": []
+    "app_types": [
+      "V3:logonet-bydgoszcz-okreg"
+    ]
   },
   {
     "domain": "warszawa.sr.gov.pl",
@@ -1839,7 +1741,9 @@
   },
   {
     "domain": "warszawapraga.so.gov.pl",
-    "app_types": []
+    "app_types": [
+      "V3:logonet-bydgoszcz-okreg"
+    ]
   },
   {
     "domain": "legionowo.sr.gov.pl",
@@ -1851,7 +1755,9 @@
   },
   {
     "domain": "otwock.sr.gov.pl",
-    "app_types": []
+    "app_types": [
+      "V3:logonet-bydgoszcz-okreg"
+    ]
   },
   {
     "domain": "warszawa-pragapoludnie.sr.gov.pl",
@@ -1859,11 +1765,15 @@
   },
   {
     "domain": "warszawapraga-pln.sr.gov.pl",
-    "app_types": []
+    "app_types": [
+      "V3:logonet-bydgoszcz-okreg"
+    ]
   },
   {
     "domain": "bip.wolomin.sr.gov.pl",
-    "app_types": []
+    "app_types": [
+      "V3:logonet-bydgoszcz-okreg"
+    ]
   },
   {
     "domain": "wroclaw.sa.gov.pl",

@@ -40,7 +40,7 @@ func BulkDownload(ctx context.Context, client *http.Client, date string, courtDa
 			downloader, err := createDownloader(client, cd)
 
 			start := time.Now().UTC()
-			var trials []Trial
+			trials := make([]Trial, 0)
 			if err == nil {
 				trials, err = downloader.Download(taskCtx, date)
 			}
@@ -113,6 +113,8 @@ func createDownloader(client *http.Client, court CourtData) (downloader Download
 	switch court.AppTypes[0] {
 	case AppTypeV1:
 		downloader = NewV1Wokanda(client, court.Domain)
+	case AppTypeV3LogonetBydgoszcz:
+		downloader = NewV3Wokanda(client, court.Domain)
 	}
 
 	if downloader == nil {
