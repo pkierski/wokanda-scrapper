@@ -98,9 +98,6 @@ func parseV3PageTrials(doc *goquery.Document) (trials []Trial, err error) {
 			val := row.Find("td")
 			valStr := strings.TrimSpace(val.Text())
 
-			// fmt.Println(header.Text(), val.Text())
-			fmt.Printf("'%v': '%v'\n", headerStr, valStr)
-
 			switch {
 			case strings.Contains(headerStr, "Sygnatura"):
 				trial.CaseID = valStr
